@@ -26,10 +26,10 @@ export function Hero() {
           </span>
 
           <h1 className="hero-title mt-6 text-balance">
-            Uma landing com cara de
+            Sua preparação AWS
             <span className="bg-[linear-gradient(135deg,#2d8cff_0%,#0b2f66_100%)] bg-clip-text text-transparent">
               {" "}
-              produto serio.
+              com direcionamento claro.
             </span>
           </h1>
 
