@@ -11,24 +11,19 @@ import { Solution } from "@/components/solution";
 export default function HomePage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[var(--color-bg-body)]">
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[36rem]"
-        style={{
-          background:
-            "radial-gradient(circle at top, var(--color-primary-soft), transparent 58%)",
-        }}
-      />
-      <div className="pointer-events-none absolute left-[-6rem] top-40 -z-10 h-72 w-72 rounded-full bg-[var(--color-bg-tint)] blur-3xl" />
-      <div className="pointer-events-none absolute right-[-8rem] top-20 -z-10 h-80 w-80 rounded-full bg-[var(--color-bg-tint-strong)] blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 -z-20 grid-overlay opacity-45 md:opacity-55" />
+      <div className="pointer-events-none absolute left-[-7rem] top-20 -z-10 hidden h-[22rem] w-[22rem] hero-orb bg-[radial-gradient(circle,var(--color-blue-300),transparent_65%)] md:block" />
+      <div className="pointer-events-none absolute right-[-9rem] top-[-5rem] -z-10 hidden h-[24rem] w-[24rem] hero-orb bg-[radial-gradient(circle,var(--color-blue-700),transparent_66%)] opacity-45 md:block" />
+      <div className="pointer-events-none absolute bottom-[-11rem] left-1/2 -z-10 hidden h-[26rem] w-[34rem] -translate-x-1/2 hero-orb bg-[radial-gradient(circle,var(--color-primary-soft),transparent_72%)] md:block" />
 
       <Navbar />
       <Hero />
       <BusinessModel />
       <Solution />
       <Certifications />
-      <FinalCta />
-      <Pricing />
       <Market />
+      <Pricing />
+      <FinalCta />
       <Footer />
     </main>
   );

@@ -1,17 +1,24 @@
-import { ArrowRight, BrainCircuit, CalendarDays, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BrainCircuit,
+  CalendarDays,
+  CheckCircle2,
+  Sparkles,
+  TrendingUp,
+} from "lucide-react";
 
 import { certificationProgress, waitlistLink } from "@/lib/data";
 
 const progressColors = [
-  "var(--color-success)",
-  "var(--color-primary)",
-  "var(--color-warning)",
+  "linear-gradient(90deg, #2d8cff 0%, #0b2f66 100%)",
+  "linear-gradient(90deg, #5bb0ff 0%, #2d8cff 100%)",
+  "linear-gradient(90deg, #0b2f66 0%, #06172f 100%)",
 ] as const;
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-3 pb-20 pt-32 md:px-6 md:pb-28 md:pt-36">
-      <div className="section-shell grid items-center gap-12 lg:grid-cols-[0.98fr_1.02fr]">
+    <section id="top" className="relative overflow-hidden px-3 pb-14 pt-20 md:px-6 md:pb-28 md:pt-36">
+      <div className="section-shell grid items-center gap-10 md:gap-12 lg:grid-cols-[0.96fr_1.04fr]">
         <div className="max-w-3xl">
           <span className="eyebrow">
             <Sparkles className="h-3.5 w-3.5" />
@@ -19,27 +26,43 @@ export function Hero() {
           </span>
 
           <h1 className="hero-title mt-6 text-balance">
-            Sua jornada para a certificacao AWS, guiada passo a passo.
+            Uma landing com cara de
+            <span className="bg-[linear-gradient(135deg,#2d8cff_0%,#0b2f66_100%)] bg-clip-text text-transparent">
+              {" "}
+              produto serio.
+            </span>
           </h1>
 
-          <p className="section-copy mt-6 max-w-2xl text-lg">
-            CloudStudy organiza o estudo em trilhas adaptativas com IA, simulados
-            inteligentes e um painel que mostra exatamente o que fazer em seguida.
+          <p className="section-copy mt-5 max-w-2xl text-base md:mt-6 md:text-lg">
+            CloudStudy organiza sua preparacao em trilhas adaptativas, simulados inteligentes
+            e um painel que mostra com clareza o proximo passo para voce passar em AWS.
           </p>
 
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-            <a href={waitlistLink} className="primary-button">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+            <a href={waitlistLink} className="primary-button sm:w-auto">
               Comecar agora gratis
               <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#como-funciona" className="secondary-button">
+            <a href="#como-funciona" className="secondary-button sm:w-auto">
               Ver como funciona
             </a>
           </div>
 
-          <p className="mt-3 text-sm text-[var(--color-muted-strong)]">
-            Sem cartao de credito, cancele quando quiser.
-          </p>
+          <div className="mt-5 flex flex-wrap items-center gap-2.5 md:mt-7 md:gap-3">
+            {[
+              "Sem cartao de credito",
+              "Trilha guiada por IA",
+              "Foco total em AWS",
+            ].map((item) => (
+              <span
+                key={item}
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] px-3 py-1.5 text-[0.68rem] font-medium text-[var(--color-text-soft)] md:text-xs"
+              >
+                <CheckCircle2 className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="glass-panel overflow-hidden p-0">
@@ -50,19 +73,19 @@ export function Hero() {
               <span className="h-3 w-3 rounded-full bg-[var(--color-success)]" />
             </div>
             <div className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted-strong)]">
-              Painel do aluno
+              Painel CloudStudy
             </div>
           </div>
 
-          <div className="space-y-4 p-6">
-            <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr]">
+          <div className="space-y-4 p-4 md:p-6">
+            <div className="grid gap-4 md:grid-cols-[1.12fr_0.88fr]">
               <div className="rounded-[1.5rem] border border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] p-5">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <div className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted-strong)]">
                       Certificacao alvo
                     </div>
-                    <div className="mt-2 text-2xl font-semibold tracking-[-0.05em] text-[var(--color-text-strong)]">
+                    <div className="mt-2 text-xl font-semibold tracking-[-0.05em] text-[var(--color-text-strong)] md:text-2xl">
                       AWS Solutions Architect
                     </div>
                   </div>
@@ -77,7 +100,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="rounded-[1.5rem] bg-[var(--color-bg-cta)] p-5 text-[var(--color-text-on-cta)]">
+              <div className="rounded-[1.5rem] bg-[linear-gradient(165deg,#0b2f66_0%,#071a39_100%)] p-5 text-[var(--color-text-on-cta)]">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-[var(--color-cta-soft)] text-[var(--color-warning)]">
                     <BrainCircuit className="h-5 w-5" />
@@ -91,12 +114,22 @@ export function Hero() {
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-5 rounded-2xl border border-[var(--color-border-cta)] bg-[var(--color-cta-soft)] px-3 py-2 text-xs text-[var(--color-text-on-cta-soft)]">
+                  Resposta contextual em segundos
+                </div>
               </div>
             </div>
 
             <div className="rounded-[1.5rem] border border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] p-5">
-              <div className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted-strong)]">
-                Progresso em tempo real
+              <div className="flex items-center justify-between gap-3">
+                <div className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-[var(--color-muted-strong)]">
+                  Progresso em tempo real
+                </div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-[var(--color-bg-soft)] px-3 py-1 text-xs font-semibold text-[var(--color-text-strong)]">
+                  <TrendingUp className="h-3.5 w-3.5 text-[var(--color-primary)]" />
+                  Evolucao semanal
+                </div>
               </div>
 
               <div className="mt-5 space-y-4">
@@ -114,7 +147,7 @@ export function Hero() {
                         className="h-2 rounded-full"
                         style={{
                           width: `${item.value}%`,
-                          backgroundColor: progressColors[index],
+                          background: progressColors[index],
                         }}
                       />
                     </div>

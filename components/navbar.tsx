@@ -1,33 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, MoonStar, SunMedium, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 import { BrandMark } from "@/components/brand-mark";
 import { navLinks, waitlistLink } from "@/lib/data";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const resolvedTheme =
-      document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-    setTheme(resolvedTheme);
-    setMounted(true);
-  }, []);
-
-  function toggleTheme() {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem("cloudstudy-theme", nextTheme);
-    setTheme(nextTheme);
-  }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-5 md:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
       <div className="mx-auto max-w-6xl">
         <div className="nav-shell">
           <div className="flex items-center justify-between gap-6 px-4 py-3 md:px-6">
@@ -44,23 +28,15 @@ export function Navbar() {
             </nav>
 
             <div className="hidden items-center gap-3 lg:flex">
-              <button
-                type="button"
-                className="theme-toggle"
-                data-active={theme}
-                aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
-                aria-pressed={theme === "dark"}
-                onClick={toggleTheme}
+              <a
+                href={waitlistLink}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] px-5 py-3 text-sm font-medium text-[var(--color-text-strong)] transition hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
               >
-                {mounted && theme === "dark" ? (
-                  <SunMedium className="h-4 w-4" />
-                ) : (
-                  <MoonStar className="h-4 w-4" />
-                )}
-                <span>{mounted && theme === "dark" ? "Tema claro" : "Tema escuro"}</span>
-              </button>
+                Falar com o time
+              </a>
               <a href={waitlistLink} className="primary-button px-5 py-3 text-sm">
                 Comecar gratis
+                <ArrowRight className="h-4 w-4" />
               </a>
             </div>
 
@@ -78,21 +54,6 @@ export function Navbar() {
           {isOpen ? (
             <div className="border-t border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] px-4 py-4 lg:hidden">
               <div className="flex flex-col gap-3">
-                <button
-                  type="button"
-                  className="theme-toggle justify-between"
-                  data-active={theme}
-                  aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
-                  aria-pressed={theme === "dark"}
-                  onClick={toggleTheme}
-                >
-                  <span>{mounted && theme === "dark" ? "Usar tema claro" : "Usar tema escuro"}</span>
-                  {mounted && theme === "dark" ? (
-                    <SunMedium className="h-4 w-4" />
-                  ) : (
-                    <MoonStar className="h-4 w-4" />
-                  )}
-                </button>
                 {navLinks.map((item) => (
                   <Link
                     key={item.href}
@@ -103,6 +64,12 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+                <a
+                  href={waitlistLink}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--color-border-soft)] bg-[var(--color-bg-surface)] px-5 py-3 text-sm font-medium text-[var(--color-text-strong)]"
+                >
+                  Falar com o time
+                </a>
                 <a href={waitlistLink} className="primary-button justify-center px-5 py-3 text-sm">
                   Comecar gratis
                 </a>

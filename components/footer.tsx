@@ -17,8 +17,8 @@ export function Footer() {
           <div className="max-w-md">
             <BrandMark />
             <p className="mt-4 text-sm leading-7 text-[var(--color-text-soft)]">
-              CloudStudy ajuda voce a passar na certificacao AWS com uma trilha guiada,
-              simulados inteligentes e tutor IA contextual.
+              CloudStudy ajuda voce a passar na certificacao AWS com trilha guiada,
+              simulados inteligentes e suporte de IA contextual.
             </p>
           </div>
 

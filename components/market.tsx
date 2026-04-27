@@ -4,10 +4,10 @@ import { SectionHeading } from "@/components/section-heading";
 import { certificationBadges, resultHighlights, testimonials } from "@/lib/data";
 
 const avatarStyles = [
-  "bg-[var(--color-primary-soft)] text-[var(--color-primary)]",
-  "bg-[var(--color-warning-soft)] text-[var(--color-text-strong)]",
-  "bg-[var(--color-success-soft)] text-[var(--color-success)]",
-  "bg-[var(--color-danger-soft)] text-[var(--color-danger)]",
+  "bg-[var(--color-primary-soft)] text-[var(--color-text-strong)]",
+  "bg-[var(--color-blue-200)] text-[var(--color-text-strong)]",
+  "bg-[var(--color-bg-tint)] text-[var(--color-text-strong)]",
+  "bg-[var(--color-blue-100)] text-[var(--color-text-strong)]",
 ] as const;
 
 function getInitials(name: string) {
@@ -24,19 +24,21 @@ export function Market() {
   const testimonialRows = [testimonials.slice(0, splitIndex), testimonials.slice(splitIndex)];
 
   return (
-    <section id="resultados" className="scroll-mt-28 px-3 py-20 md:px-6 md:py-24">
-      <div className="section-shell rounded-[2.5rem] bg-[var(--color-bg-tint)] p-8 md:p-10">
+    <section id="resultados" className="scroll-mt-28 px-3 py-14 md:px-6 md:py-24">
+      <div className="section-shell rounded-[2.5rem] border border-[var(--color-border-soft)] bg-[linear-gradient(180deg,#eaf3ff_0%,#f7fbff_100%)] p-8 md:p-10">
         <SectionHeading
           eyebrow="Resultados e prova social"
-          title="Mais credibilidade para quem acabou de conhecer a CloudStudy."
-          description="Mostre rapidamente que a plataforma e focada em AWS, ajuda de verdade no estudo e entrega uma experiencia muito mais organizada do que estudar sozinho."
+          title="Uma vitrine que transmite confianca em segundos."
+          description="A secao reforca posicionamento, mostra sinais de autoridade e facilita a decisao para quem acabou de conhecer o CloudStudy."
           align="center"
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {resultHighlights.map((item) => (
             <div key={item.label} className="glass-card p-6 text-center">
-              <div className="font-display text-4xl tracking-[-0.06em] text-[var(--color-text-strong)]">{item.value}</div>
+              <div className="font-display text-4xl tracking-[-0.06em] text-[var(--color-text-strong)]">
+                {item.value}
+              </div>
               <div className="mt-2 text-sm text-[var(--color-text-soft)]">{item.label}</div>
             </div>
           ))}
@@ -73,10 +75,10 @@ export function Market() {
                     {row.map((item, itemIndex) => (
                       <article
                         key={`${item.name}-${copyIndex}`}
-                        className="glass-card w-[20rem] shrink-0 p-6 md:w-[24rem]"
+                        className="glass-card w-full shrink-0 p-5 md:w-[24rem] md:p-6"
                       >
                         <div className="flex items-center justify-between gap-4">
-                          <div className="flex items-center gap-1 text-[var(--color-warning)]">
+                          <div className="flex items-center gap-1 text-[var(--color-primary)]">
                             {Array.from({ length: 5 }).map((_, index) => (
                               <Star key={index} className="h-4 w-4 fill-current" />
                             ))}
@@ -87,7 +89,7 @@ export function Market() {
                           </div>
                         </div>
 
-                        <p className="mt-5 min-h-[8.5rem] text-sm leading-7 text-[var(--color-text)]">
+                        <p className="mt-5 min-h-[7rem] text-sm leading-7 text-[var(--color-text)] md:min-h-[8.5rem]">
                           "{item.quote}"
                         </p>
 
@@ -100,12 +102,8 @@ export function Market() {
                             {getInitials(item.name)}
                           </div>
                           <div>
-                            <div className="font-medium text-[var(--color-text-strong)]">
-                              {item.name}
-                            </div>
-                            <div className="mt-1 text-sm text-[var(--color-text-soft)]">
-                              {item.role}
-                            </div>
+                            <div className="font-medium text-[var(--color-text-strong)]">{item.name}</div>
+                            <div className="mt-1 text-sm text-[var(--color-text-soft)]">{item.role}</div>
                           </div>
                           <Quote className="ml-auto h-5 w-5 text-[var(--color-primary)]" />
                         </div>

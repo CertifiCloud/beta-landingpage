@@ -9,7 +9,7 @@ type BrandMarkProps = {
 export function BrandMark({ compact = false }: BrandMarkProps) {
   return (
     <div
-      className={`relative inline-flex items-center justify-center overflow-hidden border border-[var(--color-border-soft)] bg-white ${
+      className={`relative inline-flex items-center justify-center overflow-hidden border border-[var(--color-border-soft)] bg-[linear-gradient(175deg,#ffffff_0%,#eef5ff_100%)] ${
         compact
           ? "h-12 w-[6.75rem] rounded-[1.25rem] md:h-[3.15rem] md:w-[7.2rem]"
           : "h-14 w-[8rem] rounded-[1.6rem] md:h-16 md:w-[8.8rem]"
