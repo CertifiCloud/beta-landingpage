@@ -16,9 +16,9 @@ const bodyFont = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Certificloud | CloudStudy",
+  title: "a CloudStudy | Lista de espera",
   description:
-    "CloudStudy ajuda voce a passar na certificacao AWS com trilhas adaptativas, simulados inteligentes e tutor IA contextual.",
+    "Landing page pre-launch da CloudStudy para captar interessados em trilhas inteligentes de certificacoes AWS guiadas por IA.",
 };
 
 export default function RootLayout({
