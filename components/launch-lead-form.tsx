@@ -1,9 +1,9 @@
 "use client";
 
 import { AlertCircle, CheckCircle2, LoaderCircle, Send } from "lucide-react";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
-import { leadCertificationOptions } from "@/lib/launch-data";
+import { leadCertificationOptions } from "../lib/launch-data";
 
 type LaunchLeadFormProps = {
   buttonLabel: string;
@@ -71,6 +71,25 @@ export function LaunchLeadForm({
   const [status, setStatus] = useState<LeadFormStatus>({ tone: "idle", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [lastSubmittedEmail, setLastSubmittedEmail] = useState("");
+
+  const storageKey = `lead-form-${source}`;
+
+  // Restaurar dados do localStorage ao montar o componente
+  useEffect(() => {
+    const savedValues = localStorage.getItem(storageKey);
+    if (savedValues) {
+      try {
+        setValues(JSON.parse(savedValues));
+      } catch {
+        // Ignorar se houver erro ao fazer parse
+      }
+    }
+  }, [storageKey]);
+
+  // Salvar dados no localStorage sempre que os valores mudam
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify(values));
+  }, [values, storageKey]);
 
   const normalizedEmail = useMemo(() => values.email.trim().toLowerCase(), [values.email]);
   const styles = toneStyles[tone];
@@ -152,6 +171,7 @@ export function LaunchLeadForm({
 
       setLastSubmittedEmail(normalizedEmail);
       setValues(initialValues);
+      localStorage.removeItem(storageKey);
       setStatus({
         tone: "success",
         message:

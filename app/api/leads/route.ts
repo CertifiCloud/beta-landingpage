@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
-import { leadCertificationOptions } from "@/lib/launch-data";
+import { leadCertificationOptions } from "../../../lib/launch-data";
 
 export const runtime = "nodejs";
 
