@@ -8,7 +8,6 @@ import { CloudStudyIntro } from "./CloudStudyIntro";
 const SESSION_KEY = "cloudstudy-intro-played";
 
 export function IntroGate({ children }: { children: React.ReactNode }) {
-  const [ready, setReady] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const prefersReducedMotion = useReducedMotion();
 
@@ -17,10 +16,15 @@ export function IntroGate({ children }: { children: React.ReactNode }) {
     const body = document.body;
     const previousHtmlOverflow = root.style.overflow;
     const previousBodyOverflow = body.style.overflow;
-    const alreadyPlayed = sessionStorage.getItem(SESSION_KEY);
+    let alreadyPlayed: string | null = null;
+
+    try {
+      alreadyPlayed = sessionStorage.getItem(SESSION_KEY);
+    } catch {
+      alreadyPlayed = SESSION_KEY;
+    }
 
     if (alreadyPlayed) {
-      setReady(true);
       return () => {
         root.style.overflow = previousHtmlOverflow;
         body.style.overflow = previousBodyOverflow;
@@ -32,9 +36,12 @@ export function IntroGate({ children }: { children: React.ReactNode }) {
     setShowIntro(true);
 
     const timer = window.setTimeout(() => {
-      sessionStorage.setItem(SESSION_KEY, "true");
+      try {
+        sessionStorage.setItem(SESSION_KEY, "true");
+      } catch {
+        // Sem armazenamento disponivel, apenas fecha a intro.
+      }
       setShowIntro(false);
-      setReady(true);
       root.style.overflow = previousHtmlOverflow;
       body.style.overflow = previousBodyOverflow;
     }, prefersReducedMotion ? 700 : 1700);
@@ -46,14 +53,10 @@ export function IntroGate({ children }: { children: React.ReactNode }) {
     };
   }, [prefersReducedMotion]);
 
-  if (!ready && !showIntro) {
-    return null;
-  }
-
   return (
     <>
       {showIntro ? <CloudStudyIntro /> : null}
-      {ready ? children : null}
+      {children}
     </>
   );
 }

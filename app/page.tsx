@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { LaunchLeadForm } from "../components/launch-lead-form";
-import { ScrollScrubVideo } from "../components/ScrollScrubVideo";
+import { ScrollFrameSequence } from "../components/ScrollFrameSequence";
 
 import image3 from "../Image3.png";
 import image4 from "../Image4.png";
@@ -12,11 +12,23 @@ const systemBullets = [
   "Tutor IA contextual",
 ] as const;
 
-const flowSteps = [
-  "Escolha sua certificação",
-  "Receba uma trilha",
-  "Pratique com simulados",
-  "Ajuste o plano com IA",
+const launchCertifications = [
+  {
+    description: "Fundamentos de cloud e AWS para iniciar sua jornada.",
+    image: "/api/certification-badges/cloud-practitioner",
+    title: "Cloud Practitioner",
+  },
+  {
+    description: "Introdução prática à IA generativa, modelos e serviços AWS.",
+    image: "/api/certification-badges/ai-practitioner",
+    title: "AI Practitioner",
+  },
+  {
+    description:
+      "Arquitetura de soluções escaláveis e preparação para a certificação associate.",
+    image: "/api/certification-badges/solutions-architect",
+    title: "Solutions Architect",
+  },
 ] as const;
 
 const navItems = [
@@ -51,7 +63,10 @@ export default function HomePage() {
               ))}
             </nav>
 
-            <a href="#lancamento" className="primary-button rounded-full px-5 py-3 text-sm font-semibold text-white">
+            <a
+              href="#lancamento"
+              className="primary-button rounded-full px-5 py-3 text-sm font-semibold text-white"
+            >
               Entrar na lista
             </a>
           </div>
@@ -61,21 +76,21 @@ export default function HomePage() {
       <section id="top" className="section-shell pb-20 pt-6 md:pb-24 md:pt-8">
         <div className="hero-surface grid gap-12 px-6 py-10 md:px-10 md:py-14 lg:grid-cols-[0.76fr_1.24fr] lg:items-center lg:px-14">
           <div className="hero-copy max-w-xl">
-          <div className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200/90">
-            STARTUP BRASILEIRA
-          </div>
-          <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white md:text-6xl md:leading-[0.95]">
-            O futuro do estudo AWS começa aqui.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 md:text-xl">
-            Uma plataforma brasileira criada para transformar aprendizado em evolução contínua.
-          </p>
-          <a
-            href="#lancamento"
-            className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B2A6F] shadow-[0_16px_40px_rgba(0,0,0,0.22)] transition hover:translate-y-[-1px]"
-          >
-            Entrar na lista
-          </a>
+            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200/90">
+              STARTUP BRASILEIRA
+            </div>
+            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white md:text-6xl md:leading-[0.95]">
+              O futuro do estudo AWS começa aqui.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 md:text-xl">
+              Uma plataforma brasileira criada para transformar aprendizado em evolução contínua.
+            </p>
+            <a
+              href="#lancamento"
+              className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B2A6F] shadow-[0_16px_40px_rgba(0,0,0,0.22)] transition hover:translate-y-[-1px]"
+            >
+              Entrar na lista
+            </a>
           </div>
 
           <div className="hero-media soft-panel aspect-[16/10] overflow-hidden rounded-[2.85rem] lg:aspect-[1.55/1]">
@@ -108,7 +123,7 @@ export default function HomePage() {
       </section>
 
       <section className="relative bg-white">
-        <div className="section-shell grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-2 lg:gap-20">
+        <div className="section-shell grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-24 lg:gap-20">
           <div className="max-w-xl">
             <div
               className="pointer-events-none absolute -left-10 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full blur-3xl"
@@ -137,8 +152,8 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative h-[700px] w-full">
-            <ScrollScrubVideo src="/robo-scrub.mp4" />
+          <div className="flex justify-center">
+            <ScrollFrameSequence />
           </div>
         </div>
       </section>
@@ -180,31 +195,43 @@ export default function HomePage() {
       </section>
 
       <section id="como-funciona" className="section-shell py-12 md:py-16">
-        <div className="grid gap-8 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
-          <div className="max-w-xl">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center justify-center text-center">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
               Como a CloudStudy entra
             </div>
             <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[0.98]">
-              A CloudStudy organiza sua jornada AWS.
+              Certificações disponíveis no lançamento.
             </h2>
             <p className="mt-6 text-lg leading-8 text-[var(--color-text-soft)]">
-              Você escolhe a certificação. A plataforma monta a trilha. A IA ajuda a manter o estudo
-              claro, prático e contínuo.
+              Comece sua preparação com trilhas estruturadas para as certificações mais procuradas da AWS.
             </p>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-2">
-            {flowSteps.map((step, index) => (
-              <div
-                key={step}
-                className="rounded-[1.2rem] border border-[var(--color-border)] bg-[linear-gradient(135deg,#FFFFFF_0%,#F8FBFF_100%)] px-5 py-5 shadow-[0_8px_24px_rgba(20,121,255,0.05)]"
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {launchCertifications.map((certification) => (
+              <article
+                key={certification.title}
+                className="group flex flex-col items-center rounded-[28px] border border-blue-100 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(244,249,255,0.92)_100%)] p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(20,121,255,0.12)]"
               >
-                <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-accent)]">
-                  0{index + 1}
+                <div className="mb-8 flex h-[180px] items-center justify-center rounded-[24px] bg-gradient-to-b from-[#F8FBFF] to-white px-4 pt-4">
+                  <Image
+                    src={certification.image}
+                    alt={certification.title}
+                    width={150}
+                    height={150}
+                    className="mx-auto h-[140px] w-auto object-contain"
+                    unoptimized
+                  />
                 </div>
-                <div className="mt-3 text-lg font-semibold text-slate-950">{step}</div>
-              </div>
+
+                <h3 className="text-center text-xl font-semibold tracking-[-0.04em] text-slate-950">
+                  {certification.title}
+                </h3>
+                <p className="mt-3 text-center text-base leading-7 text-[var(--color-text-soft)]">
+                  {certification.description}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -235,9 +262,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-[var(--color-border)] py-8">
-        <div className="section-shell flex flex-col gap-2 text-sm text-[var(--color-text-soft)] md:flex-row md:items-center md:justify-between">
-          <div className="font-semibold text-slate-950">CloudStudy</div>
+      <footer className="border-t border-blue-100 bg-[#EEF3FA]">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-6 md:flex-row">
+          <p className="text-center text-sm text-slate-600 md:text-left">
+            © 2026 CloudStudy. Todos os direitos reservados.
+          </p>
+
+          <Image
+            src="/Logo-CloudStudy (1).png"
+            alt="CloudStudy"
+            width={170}
+            height={52}
+            className="h-auto w-[150px] md:w-[170px]"
+          />
+
+          <a
+            href="https://www.linkedin.com/company/cloudstudy-ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="CloudStudy no LinkedIn"
+            className="inline-flex items-center justify-center rounded-full border border-blue-200 bg-white p-3 text-[#0A66C2] transition hover:border-blue-300 hover:bg-blue-50"
+          >
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              className="h-5 w-5"
+              fill="currentColor"
+            >
+              <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3 9h4v12H3zM9 9h3.83v1.64h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.93V21H9z" />
+            </svg>
+          </a>
         </div>
       </footer>
     </main>

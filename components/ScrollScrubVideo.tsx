@@ -1,6 +1,6 @@
 "use client";
 
-import { useMotionValueEvent, useScroll, useSpring } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 type ScrollScrubVideoProps = {
@@ -12,20 +12,12 @@ export function ScrollScrubVideo({ src, className }: ScrollScrubVideoProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const frameRef = useRef<number | null>(null);
-  const lastProgress = useRef(0);
-  const directionRef = useRef<"down" | "up">("down");
   const [duration, setDuration] = useState(0);
   const [ready, setReady] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 82%", "end 62%"],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 45,
-    damping: 28,
-    mass: 0.4,
+    offset: ["start end", "end start"],
   });
 
   useEffect(() => {
@@ -36,18 +28,14 @@ export function ScrollScrubVideo({ src, className }: ScrollScrubVideoProps) {
     };
   }, []);
 
-  useMotionValueEvent(smoothProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const video = videoRef.current;
 
-    if (latest > lastProgress.current) {
-      directionRef.current = "down";
-    } else {
-      directionRef.current = "up";
+    if (!video || !duration || !ready) {
+      return;
     }
 
-    lastProgress.current = latest;
-
-    if (!video || !duration || !ready) {
+    if (video.readyState < 2) {
       return;
     }
 
@@ -56,45 +44,33 @@ export function ScrollScrubVideo({ src, className }: ScrollScrubVideoProps) {
     }
 
     frameRef.current = requestAnimationFrame(() => {
-      const clamped = Math.min(Math.max(latest, 0.03), 0.72);
-      const raw = (clamped - 0.03) / 0.69;
-
-      let adjusted;
-
-      if (directionRef.current === "down") {
-        adjusted = Math.pow(raw, 0.32);
-      } else {
-        adjusted = Math.pow(raw, 1.55);
+      const progress = Math.min(Math.max(latest, 0), 1);
+      const targetTime = progress * duration;
+      if (Math.abs(video.currentTime - targetTime) > 0.01) {
+        video.currentTime = Math.min(targetTime, Math.max(duration - 0.04, 0));
       }
-
-      const smoothed = adjusted * 0.85 + raw * 0.15;
-
-      video.currentTime = smoothed * duration;
     });
   });
 
   return (
-    <div ref={containerRef} className={`relative h-full w-full ${className ?? ""}`}>
-      <div className="sticky top-[12vh] flex h-[70vh] w-full items-center justify-center">
-        <div className="relative w-full">
-          <div className="pointer-events-none absolute inset-[14%] -z-10 rounded-full bg-blue-500/18 blur-3xl" />
-          <video
-            ref={videoRef}
-            src={src}
-            muted
-            playsInline
-            preload="auto"
-            className="h-auto max-h-[640px] w-full max-w-[520px] object-contain mix-blend-multiply [mask-image:radial-gradient(circle_at_center,black_60%,transparent_100%)]"
-            onLoadedMetadata={(event) => {
-              const video = event.currentTarget;
-              video.pause();
-              video.currentTime = 0;
-              setDuration(video.duration);
-              setReady(true);
-            }}
-          />
-        </div>
-      </div>
+    <div ref={containerRef} className={`relative w-full max-w-[520px] ${className ?? ""}`}>
+      <div className="pointer-events-none absolute inset-[14%] -z-10 rounded-full bg-blue-500/18 blur-3xl" />
+      <video
+        ref={videoRef}
+        src={src}
+        muted
+        playsInline
+        preload="auto"
+        controls={false}
+        className="h-auto w-full object-contain mix-blend-multiply [mask-image:radial-gradient(circle_at_center,black_60%,transparent_100%)]"
+        onLoadedMetadata={(event) => {
+          const video = event.currentTarget;
+          video.pause();
+          video.currentTime = 0;
+          setDuration(video.duration);
+          setReady(true);
+        }}
+      />
     </div>
   );
 }
