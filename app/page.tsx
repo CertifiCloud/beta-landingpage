@@ -1,7 +1,6 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 
 import { LaunchLeadForm } from "../components/launch-lead-form";
-import { ScrollFrameSequence } from "../components/ScrollFrameSequence";
 
 import image3 from "../Image3.png";
 import image4 from "../Image4.png";
@@ -15,18 +14,18 @@ const systemBullets = [
 const launchCertifications = [
   {
     description: "Fundamentos de cloud e AWS para iniciar sua jornada.",
-    image: "/api/certification-badges/cloud-practitioner",
+    image: "/cert-cloud-practitioner.png",
     title: "Cloud Practitioner",
   },
   {
     description: "Introdução prática à IA generativa, modelos e serviços AWS.",
-    image: "/api/certification-badges/ai-practitioner",
+    image: "/cert-ai-practitioner.png",
     title: "AI Practitioner",
   },
   {
     description:
       "Arquitetura de soluções escaláveis e preparação para a certificação associate.",
-    image: "/api/certification-badges/solutions-architect",
+    image: "/cert-solutions-architect.png",
     title: "Solutions Architect",
   },
 ] as const;
@@ -40,7 +39,7 @@ const navItems = [
 
 export default function HomePage() {
   return (
-    <main className="page-shell min-h-screen bg-[var(--color-bg-body)] text-[var(--color-text)]">
+    <main className="page-shell min-h-screen overflow-x-clip bg-[var(--color-bg-body)] text-[var(--color-text)]">
       <header className="site-header">
         <div className="section-shell">
           <div className="site-header__bar">
@@ -50,7 +49,7 @@ export default function HomePage() {
                 alt="CloudStudy"
                 width={900}
                 height={600}
-                className="h-auto w-[170px] md:w-[210px]"
+                className="h-auto w-[150px] sm:w-[170px] md:w-[210px]"
                 priority
               />
             </a>
@@ -65,7 +64,7 @@ export default function HomePage() {
 
             <a
               href="#lista-de-espera"
-              className="primary-button rounded-full px-5 py-3 text-sm font-semibold text-white"
+              className="primary-button shrink-0 whitespace-nowrap rounded-full px-4 py-3 text-xs font-semibold text-white sm:px-5 sm:text-sm"
             >
               Entrar na lista
             </a>
@@ -73,16 +72,16 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section id="top" className="section-shell pb-20 pt-6 md:pb-24 md:pt-8">
-        <div className="hero-surface grid gap-12 px-6 py-10 md:px-10 md:py-14 lg:grid-cols-[0.76fr_1.24fr] lg:items-center lg:px-14">
+      <section id="top" className="section-shell pb-16 pt-6 md:pb-24 md:pt-8">
+        <div className="hero-surface grid gap-12 px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:grid-cols-[0.76fr_1.24fr] lg:items-center lg:px-14">
           <div className="hero-copy max-w-xl">
             <div className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200/90">
               STARTUP BRASILEIRA
             </div>
-            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white md:text-6xl md:leading-[0.95]">
+            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white sm:text-5xl md:text-6xl md:leading-[0.95]">
               O futuro do estudo AWS começa aqui.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/90 md:text-xl">
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/90 sm:text-lg md:text-xl">
               Uma plataforma brasileira criada para transformar aprendizado em evolução contínua.
             </p>
             <a
@@ -93,7 +92,7 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="hero-media soft-panel aspect-[16/10] overflow-hidden rounded-[2.85rem] lg:aspect-[1.55/1]">
+          <div className="hero-media soft-panel aspect-[16/10] overflow-hidden rounded-[2.2rem] sm:rounded-[2.85rem] lg:aspect-[1.55/1]">
             <Image
               src={image4}
               alt="Xícara com marca da CloudStudy ao lado de anotações."
@@ -122,8 +121,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="tutor-ia" className="relative bg-white">
-        <div className="section-shell grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-24 lg:gap-20">
+      <section id="tutor-ia" className="relative overflow-hidden bg-white">
+        <div className="section-shell grid max-w-7xl grid-cols-1 items-center gap-10 px-5 py-16 sm:px-6 md:grid-cols-2 md:gap-12 md:py-24 lg:gap-20">
           <div className="max-w-xl">
             <div
               className="pointer-events-none absolute -left-10 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full blur-3xl"
@@ -153,8 +152,46 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="flex justify-center">
-            <ScrollFrameSequence />
+          <div className="relative flex justify-center">
+            <div className="relative w-full max-w-[540px] overflow-hidden rounded-[2rem] border border-blue-100 bg-[linear-gradient(155deg,#ffffff_0%,#f4f9ff_52%,#e8f2ff_100%)] p-5 shadow-[0_24px_64px_rgba(20,121,255,0.18)] md:p-6">
+              <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(20,121,255,0.24)_0%,rgba(20,121,255,0)_72%)] blur-2xl" />
+              <div className="pointer-events-none absolute -bottom-10 -left-6 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.24)_0%,rgba(56,189,248,0)_72%)] blur-2xl" />
+
+              <div className="relative rounded-[1.4rem] border border-white/70 bg-white/80 p-4 backdrop-blur">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1479FF]">
+                    Tutor IA CloudStudy
+                  </div>
+                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
+                    Online 24/7
+                  </span>
+                </div>
+
+                <div className="mt-4 grid gap-3">
+                  <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-3 py-3 text-sm leading-6 text-slate-700">
+                    Hoje vamos focar em IAM e arquitetura segura para AWS Certified Solutions Architect.
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white px-3 py-3 text-sm leading-6 text-slate-700">
+                    Simulado adaptativo preparado com base no seu desempenho de ontem.
+                  </div>
+                </div>
+              </div>
+
+              <div className="relative mt-4 grid grid-cols-2 gap-3 text-xs font-semibold sm:text-sm">
+                <div className="rounded-xl border border-blue-100 bg-white/85 px-3 py-3 text-slate-700">
+                  Revisões inteligentes
+                </div>
+                <div className="rounded-xl border border-blue-100 bg-white/85 px-3 py-3 text-slate-700">
+                  Plano personalizado
+                </div>
+                <div className="rounded-xl border border-blue-100 bg-white/85 px-3 py-3 text-slate-700">
+                  Diagnóstico contínuo
+                </div>
+                <div className="rounded-xl border border-blue-100 bg-white/85 px-3 py-3 text-slate-700">
+                  Feedback imediato
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -197,7 +234,7 @@ export default function HomePage() {
 
       <section id="certificacoes" className="section-shell py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <div className="mx-auto mb-16 flex max-w-3xl flex-col items-center justify-center text-center">
+          <div className="mx-auto mb-14 flex max-w-3xl flex-col items-center justify-center text-center md:mb-16">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
               Como a CloudStudy entra
             </div>
@@ -215,14 +252,13 @@ export default function HomePage() {
                 key={certification.title}
                 className="group flex flex-col items-center rounded-[28px] border border-blue-100 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(244,249,255,0.92)_100%)] p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_12px_40px_rgba(20,121,255,0.12)]"
               >
-                <div className="mb-8 flex h-[180px] items-center justify-center rounded-[24px] bg-gradient-to-b from-[#F8FBFF] to-white px-4 pt-4">
+                <div className="mb-8 flex h-[180px] w-full items-center justify-center rounded-[24px] bg-gradient-to-b from-[#F8FBFF] to-white px-4 pt-4">
                   <Image
                     src={certification.image}
                     alt={certification.title}
                     width={150}
                     height={150}
                     className="mx-auto h-[140px] w-auto object-contain"
-                    unoptimized
                   />
                 </div>
 
@@ -239,7 +275,7 @@ export default function HomePage() {
       </section>
 
       <section id="lista-de-espera" className="section-shell pb-20 pt-12 md:pb-24 md:pt-16">
-        <div className="soft-panel grid gap-8 p-6 md:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div className="soft-panel grid gap-8 p-5 sm:p-6 md:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
           <div className="max-w-sm">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
               Lista de espera
