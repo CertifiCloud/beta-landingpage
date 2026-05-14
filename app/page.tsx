@@ -45,7 +45,7 @@ export default function HomePage() {
           <div className="site-header__bar">
             <a href="#top" className="site-header__brand" aria-label="CloudStudy">
               <Image
-                src="/Logo-CloudStudy (1).png"
+                src="/logo-blue-sem-fundo.png"
                 alt="CloudStudy"
                 width={900}
                 height={600}
@@ -306,7 +306,7 @@ export default function HomePage() {
           </p>
 
           <Image
-            src="/Logo-CloudStudy (1).png"
+            src="/logo-blue-sem-fundo.png"
             alt="CloudStudy"
             width={170}
             height={52}

@@ -1,54 +1,87 @@
 "use client";
 
-import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-const LOGO_SRC = "/Logo-CloudStudy (1).png";
+type CloudStudyIntroProps = {
+  onComplete: () => void;
+};
 
-export function CloudStudyIntro() {
+const ROBOT_PLAYBACK_RATE = 1.35;
+
+export function CloudStudyIntro({ onComplete }: CloudStudyIntroProps) {
   const prefersReducedMotion = useReducedMotion();
+  const hasCompletedRef = useRef(false);
+  const safetyTimerRef = useRef<number | null>(null);
+
+  const clearSafetyTimer = () => {
+    if (safetyTimerRef.current !== null) {
+      window.clearTimeout(safetyTimerRef.current);
+      safetyTimerRef.current = null;
+    }
+  };
+
+  const completeIntro = () => {
+    if (hasCompletedRef.current) return;
+    hasCompletedRef.current = true;
+    clearSafetyTimer();
+    onComplete();
+  };
+
+  useEffect(() => {
+    if (!prefersReducedMotion) return;
+
+    const timer = window.setTimeout(() => {
+      completeIntro();
+    }, 350);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [prefersReducedMotion]);
+
+  useEffect(() => {
+    return () => {
+      clearSafetyTimer();
+    };
+  }, []);
 
   return (
-    <AnimatePresence>
-      <motion.div
-        className="cloudstudy-intro-overlay fixed inset-0 z-[9999] flex items-center justify-center bg-white"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: prefersReducedMotion ? 1 : [1, 1, 0] }}
-        exit={{ opacity: 0 }}
-        transition={{
-          duration: prefersReducedMotion ? 0.2 : 1.7,
-          times: prefersReducedMotion ? undefined : [0, 0.68, 1],
-          ease: [0.76, 0, 0.24, 1],
-        }}
-        aria-hidden="true"
-      >
-        <motion.div
-          initial={{ opacity: 1, scale: 1 }}
-          animate={
-            prefersReducedMotion
-              ? { opacity: 0, scale: 1.04 }
-              : {
-                  opacity: [1, 1, 0],
-                  scale: [1, 1.18, 1.65],
-                }
-          }
-          transition={{
-            duration: prefersReducedMotion ? 0.55 : 1.45,
-            times: prefersReducedMotion ? undefined : [0, 0.48, 1],
-            ease: [0.76, 0, 0.24, 1],
+    <motion.div
+      className="cloudstudy-intro-overlay fixed inset-0 z-[9999] flex items-center justify-center bg-white px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      aria-hidden="true"
+    >
+      <div className="w-full max-w-sm overflow-hidden rounded-[1.5rem] bg-transparent">
+        <video
+          autoPlay
+          muted
+          playsInline
+          className="block h-full w-full rounded-[1.5rem] object-cover"
+          onEnded={completeIntro}
+          onError={completeIntro}
+          onLoadedMetadata={(event) => {
+            if (prefersReducedMotion) return;
+
+            const video = event.currentTarget;
+            video.playbackRate = ROBOT_PLAYBACK_RATE;
+
+            clearSafetyTimer();
+            const duration = Number.isFinite(video.duration) ? video.duration : 0;
+            const expectedMs = duration > 0 ? (duration / ROBOT_PLAYBACK_RATE) * 1000 : 7000;
+
+            // Fallback de segurança com folga para nunca cortar o final da intro.
+            safetyTimerRef.current = window.setTimeout(() => {
+              completeIntro();
+            }, Math.ceil(expectedMs + 1500));
           }}
         >
-          <Image
-            src={LOGO_SRC}
-            alt="CloudStudy"
-            width={900}
-            height={600}
-            priority
-            className="h-auto w-[clamp(260px,42vw,560px)] select-none"
-            draggable={false}
-          />
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
+          <source src="/robo-da-maldade.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </motion.div>
   );
 }
