@@ -402,31 +402,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      <footer className="border-t border-blue-100 bg-[#EEF3FA]">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-6 md:flex-row">
-          <p className="text-center text-sm text-slate-600 md:text-left">
+      <footer className="mt-8 bg-white/90">
+        <div className="section-shell py-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <div className="space-y-2">
+              <Image
+                src="/logo-blue-sem-fundo.png"
+                alt="CloudStudy"
+                width={170}
+                height={52}
+                className="h-auto w-[152px] md:w-[172px]"
+              />
+              <p className="text-sm text-slate-600">
+                Trilhas guiadas para certificações AWS com foco no que mais cai.
+              </p>
+            </div>
+
+            <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-medium text-slate-600" aria-label="Links do rodapé">
+              <a href="#top" className="transition hover:text-slate-900">Início</a>
+              <a href="#certificacoes" className="transition hover:text-slate-900">Certificações</a>
+              <a href="#faq" className="transition hover:text-slate-900">FAQ</a>
+              <a href="#lista-de-espera" className="transition hover:text-slate-900">Lista de espera</a>
+            </nav>
+
+            <a
+              href="https://www.linkedin.com/company/cloudstudy-ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="CloudStudy no LinkedIn"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3 9h4v12H3zM9 9h3.83v1.64h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.93V21H9z" />
+              </svg>
+              LinkedIn
+            </a>
+          </div>
+
+          <div className="mt-6 pt-4 text-center text-xs text-slate-500 md:text-left">
             © 2026 CloudStudy. Todos os direitos reservados.
-          </p>
-
-          <Image
-            src="/logo-blue-sem-fundo.png"
-            alt="CloudStudy"
-            width={170}
-            height={52}
-            className="h-auto w-[150px] md:w-[170px]"
-          />
-
-          <a
-            href="https://www.linkedin.com/company/cloudstudy-ai/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CloudStudy no LinkedIn"
-            className="inline-flex items-center justify-center rounded-full border border-blue-200 bg-white p-3 text-[#0A66C2] transition hover:border-blue-300 hover:bg-blue-50"
-          >
-            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
-              <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46 2.48 2.48 0 0 0 4.98 3.5ZM3 9h4v12H3zM9 9h3.83v1.64h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.14V21h-4v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.93V21H9z" />
-            </svg>
-          </a>
+          </div>
         </div>
       </footer>
     </main>
