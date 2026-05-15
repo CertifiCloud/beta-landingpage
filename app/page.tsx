@@ -73,30 +73,23 @@ export default function HomePage() {
       </header>
 
       <section id="top" className="section-shell pb-16 pt-6 md:pb-24 md:pt-8">
-        <div className="hero-surface grid gap-12 px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:grid-cols-[0.76fr_1.24fr] lg:items-center lg:px-14">
-          <div className="hero-copy max-w-xl">
-            <div className="text-sm font-semibold uppercase tracking-[0.24em] text-sky-200/90">
-              STARTUP BRASILEIRA
-            </div>
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="hero-surface px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:px-14">
+            <div className="hero-copy max-w-xl">
             <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white sm:text-5xl md:text-6xl md:leading-[0.95]">
-              O futuro do estudo AWS começa aqui.
+              Seu caminho guiado para a certificacao AWS.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-8 text-white/90 sm:text-lg md:text-xl">
-              Uma plataforma brasileira criada para transformar aprendizado em evolução contínua.
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/95 sm:text-xl md:text-2xl">
+              Foque no que mais cai. Siga uma trilha clara. Evolua sem se perder.
             </p>
-            <a
-              href="#lista-de-espera"
-              className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#0B2A6F] shadow-[0_16px_40px_rgba(0,0,0,0.22)] transition hover:translate-y-[-1px]"
-            >
-              Entrar na lista
-            </a>
+            </div>
           </div>
 
-          <div className="hero-media soft-panel aspect-[16/10] overflow-hidden rounded-[2.2rem] sm:rounded-[2.85rem] lg:aspect-[1.55/1]">
+          <div className="hero-media flex items-center justify-end">
             <Image
               src={image4}
               alt="Xícara com marca da CloudStudy ao lado de anotações."
-              className="h-full w-full object-cover object-center"
+              className="h-auto w-full max-w-[760px] rounded-[2.4rem] sm:rounded-[2.8rem] object-cover object-center"
               priority
             />
           </div>
@@ -107,15 +100,13 @@ export default function HomePage() {
         <div className="section-tint mx-auto max-w-5xl px-6 py-10 text-center md:px-10 md:py-12">
           <div className="mx-auto max-w-3xl">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
-              Posicionamento
+              Metodologia CloudStudy
             </div>
             <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[0.98]">
-              Construída no Brasil para organizar o estudo AWS com mais clareza.
+              Uma metodologia guiada para voce estudar AWS com foco no que mais cai na prova.
             </h2>
             <p className="mt-6 text-lg leading-8 text-[var(--color-text-soft)]">
-              A CloudStudy nasce com ambição de ser a referência brasileira para quem quer estudar
-              certificações AWS com estrutura, continuidade e uma experiência pensada desde o início
-              para esse objetivo.
+              Com base em uma trilha completa da CLF-C02, organizamos o estudo por modulos, dominios e simulados. Voce recebe um plano progressivo, revisoes direcionadas pelos seus erros e acompanhamento continuo para evoluir com consistencia ate a aprovacao.
             </p>
           </div>
         </div>
