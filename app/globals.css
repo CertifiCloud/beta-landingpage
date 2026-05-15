@@ -13,6 +13,46 @@
   --color-accent-light: #38bdf8;
 }
 
+@keyframes mentorRobotFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes mentorBadgePulse {
+  0% {
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.18);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.mentor-robot-image {
+  animation: mentorRobotFloat 3.4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.mentor-robot-badge {
+  animation: mentorBadgePulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mentor-robot-image,
+  .mentor-robot-badge {
+    animation: none;
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;

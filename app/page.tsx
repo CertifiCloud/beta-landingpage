@@ -131,24 +131,18 @@ export default function HomePage() {
                   "radial-gradient(circle at 30% 40%, rgba(20,121,255,0.12), transparent 50%)",
               }}
             />
-            <div className="relative max-w-xl">
-              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#1479FF]">
-                INTELIGÊNCIA ARTIFICIAL
+            <div className="relative overflow-hidden rounded-[2rem] border border-blue-100 bg-[linear-gradient(165deg,#eef6ff_0%,#ffffff_100%)] p-4 shadow-[0_22px_58px_rgba(20,121,255,0.14)] md:p-6">
+              <Image
+                src="/robo-novo.png"
+                alt="Tutor IA da CloudStudy."
+                width={820}
+                height={820}
+                className="mentor-robot-image h-full w-full rounded-[1.3rem] object-cover"
+                priority
+              />
+              <div className="mentor-robot-badge mt-3 rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">
+                Mentor IA com Experiência real em certificações AWS
               </div>
-              <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.06em] text-[#0B2A6F] md:text-5xl md:leading-[0.98]">
-                Um tutor 24/7 que estuda com você.
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-[var(--color-text-soft)]">
-                Você não estuda sozinho. A CloudStudy terá um tutor de IA disponível 24 horas por dia,
-                que te acompanha na preparação, explica conteúdos, resolve dúvidas e te guia com base
-                em experiências reais de provas AWS.
-              </p>
-              <a
-                href="#lista-de-espera"
-                className="secondary-button mt-7 inline-flex rounded-full border border-[var(--color-border)] px-5 py-3 text-sm font-semibold text-[#0B2A6F] transition hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
-              >
-                Falar com o tutor
-              </a>
             </div>
           </div>
 
@@ -156,23 +150,22 @@ export default function HomePage() {
             <div className="relative w-full max-w-[540px] overflow-hidden rounded-[2rem] border border-blue-100 bg-[linear-gradient(155deg,#ffffff_0%,#f4f9ff_52%,#e8f2ff_100%)] p-5 shadow-[0_24px_64px_rgba(20,121,255,0.18)] md:p-6">
               <div className="pointer-events-none absolute -right-8 -top-8 h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(20,121,255,0.24)_0%,rgba(20,121,255,0)_72%)] blur-2xl" />
               <div className="pointer-events-none absolute -bottom-10 -left-6 h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(56,189,248,0.24)_0%,rgba(56,189,248,0)_72%)] blur-2xl" />
-
-              <div className="relative rounded-[1.4rem] border border-white/70 bg-white/80 p-4 backdrop-blur">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1479FF]">
-                    Tutor IA CloudStudy
-                  </div>
-                  <span className="rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
-                    Online 24/7
-                  </span>
+              <div className="rounded-[1.35rem] border border-white/70 bg-white/85 p-4 backdrop-blur">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1479FF]">
+                  Exemplo de conversa
                 </div>
-
-                <div className="mt-4 grid gap-3">
-                  <div className="rounded-2xl border border-blue-100 bg-blue-50/70 px-3 py-3 text-sm leading-6 text-slate-700">
-                    Hoje vamos focar em IAM e arquitetura segura para AWS Certified Solutions Architect.
+                <div className="mt-3 grid gap-2.5">
+                  <div className="max-w-[92%] rounded-2xl border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
+                    Tenho 45 minutos por dia. Como você prioriza com base na memória real do fundador?
                   </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white px-3 py-3 text-sm leading-6 text-slate-700">
-                    Simulado adaptativo preparado com base no seu desempenho de ontem.
+                  <div className="ml-auto max-w-[95%] rounded-2xl border border-blue-100 bg-blue-50/80 px-3 py-2.5 text-sm leading-6 text-slate-700">
+                    Eu uso os padrões das aprovações AWS do fundador: no CLF-C02, começamos por domínios de maior peso e revisão ativa curta.
+                  </div>
+                  <div className="max-w-[92%] rounded-2xl border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
+                    E para as outras trilhas, você mantém essa lógica?
+                  </div>
+                  <div className="ml-auto max-w-[95%] rounded-2xl border border-blue-100 bg-blue-50/80 px-3 py-2.5 text-sm leading-6 text-slate-700">
+                    Sim. A memória de estudo real do fundador vira plano prático: foco por domínio, simulado guiado e correção com reforço do erro recorrente.
                   </div>
                 </div>
               </div>
