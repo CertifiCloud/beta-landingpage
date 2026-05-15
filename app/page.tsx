@@ -18,9 +18,50 @@ const launchCertifications = [
   },
   {
     description:
-      "Arquitetura de soluções escaláveis, resilientes e prontas para a prova Associate.",
+      "Arquitetura de soluções escaláveis, resilientes e prontas para a certificação Associate.",
     image: "/cert-solutions-architect-sem-fundo.png",
     title: "Solutions Architect",
+  },
+] as const;
+
+const faqItems = [
+  {
+    question: "Como a CloudStudy funciona na prática?",
+    answer: "Trilha guiada por módulos e simulados, com foco no que mais cai.",
+  },
+  {
+    question: "Preciso já ter experiência com AWS?",
+    answer: "Não. Você começa do zero com uma trilha progressiva.",
+  },
+  {
+    question: "Funciona para quem tem pouco tempo por dia?",
+    answer: "Sim. Funciona com rotina corrida e passos curtos.",
+  },
+  {
+    question: "O que diferencia o Mentor IA da CloudStudy?",
+    answer: "Ele usa memória real de preparação e prova para guiar o próximo passo.",
+  },
+  {
+    question: "Quando o acesso será liberado?",
+    answer: "Você recebe novidades e acesso antecipado conforme as trilhas saem.",
+  },
+] as const;
+
+const socialProofItems = [
+  {
+    handle: "@mariana.arqcloud",
+    role: "Arquiteta de Soluções · LinkedIn",
+    quote: "Finalmente uma trilha que mostra o que estudar primeiro. Parei de me perder em conteúdo aleatório.",
+  },
+  {
+    handle: "@pedro.devopsjr",
+    role: "DevOps Júnior · LinkedIn",
+    quote: "O plano guiado e os simulados por domínio deixaram minha rotina muito mais objetiva.",
+  },
+  {
+    handle: "@luiza.estudaaws",
+    role: "Analista de Cloud · LinkedIn",
+    quote: "A parte do mentor com memória real de prova dá confiança para saber qual é o próximo passo.",
   },
 ] as const;
 
@@ -90,7 +131,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="posicionamento" className="section-shell py-12 md:py-16">
+      <section id="posicionamento" className="section-shell py-10 md:py-12">
         <div className="section-tint mx-auto max-w-5xl px-6 py-10 text-center md:px-10 md:py-12">
           <div className="mx-auto max-w-3xl">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
@@ -285,6 +326,54 @@ export default function HomePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="faq" className="section-shell py-12 md:py-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="mx-auto mb-6 max-w-3xl text-center">
+            <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">FAQ objetivo</div>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[1]">
+              FAQ rápido
+            </h2>
+          </div>
+
+          <div className="grid gap-2.5 md:grid-cols-2">
+            {faqItems.map((item) => (
+              <article key={item.question} className="rounded-[0.9rem] border border-slate-200/80 bg-white p-3">
+                <h3 className="text-[15px] font-semibold text-slate-900">{item.question}</h3>
+                <p className="mt-1.5 text-sm leading-5 text-[var(--color-text-soft)]">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="prova-social" className="section-shell py-12 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto mb-8 max-w-3xl text-center">
+            <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--color-accent)]">Prova social</div>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[1]">
+              Feedbacks dos conteúdos gratuitos no LinkedIn
+            </h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {socialProofItems.map((item) => (
+              <article key={item.handle} className="flex h-full flex-col rounded-[1.1rem] border border-slate-200 bg-white p-4 shadow-[0_8px_22px_rgba(15,23,42,0.06)]">
+                <p className="min-h-[126px] text-sm leading-6 text-slate-700">"{item.quote}"</p>
+                <div className="mt-4 border-t border-slate-100 pt-3">
+                  <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">Feedback de conteúdo gratuito</p>
+                  <p className="text-sm font-semibold text-slate-900">{item.handle}</p>
+                  <p className="text-xs text-slate-500">{item.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-5 text-center text-sm text-[var(--color-text-soft)]">
+            Estes feedbacks são dos conteúdos gratuitos já publicados pela CloudStudy.
+          </p>
         </div>
       </section>
 
