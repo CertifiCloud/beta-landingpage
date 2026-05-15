@@ -162,7 +162,7 @@ export default function HomePage() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-slate-900">Mentor IA</p>
-                      <p className="text-xs text-slate-500">Experiencia real de aprovacao AWS</p>
+                      <p className="text-xs text-slate-500">Plano simples, baseado em aprovacoes reais</p>
                     </div>
                   </div>
                   <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-emerald-700">
@@ -172,22 +172,22 @@ export default function HomePage() {
 
                 <div className="space-y-3 bg-slate-50 px-4 py-4">
                   <div className="ml-auto max-w-[88%] rounded-2xl rounded-tr-md border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Sou iniciante e tenho 45 minutos por dia. Por onde eu comeco?
+                    Sou iniciante e tenho pouco tempo. Como eu comeco sem me perder?
                     <div className="mt-1 text-[10px] text-slate-400">Voce · agora</div>
                   </div>
 
                   <div className="max-w-[92%] rounded-2xl rounded-tl-md border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Vamos comecar pelo basico primeiro. Eu te guio em passos curtos por dia, com explicacoes simples e revisao rapida no final.
+                    A gente analisa onde voce esta errando ou tendo mais dificuldade. Eu ja passei por isso e te guio no que realmente destrava.
                     <div className="mt-1 text-[10px] text-slate-500">Mentor IA · agora</div>
                   </div>
 
                   <div className="ml-auto max-w-[88%] rounded-2xl rounded-tr-md border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    E como eu sei se estou evoluindo mesmo?
+                    Estou tendo dificuldade em qual area?
                     <div className="mt-1 text-[10px] text-slate-400">Voce · agora</div>
                   </div>
 
                   <div className="max-w-[92%] rounded-2xl rounded-tl-md border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Toda semana fazemos um mini simulado, eu te mostro onde voce errou e ajusto seu plano para voce melhorar mais rapido.
+                    Voce esta errando mais questoes de seguranca. No exame que eu fiz, cerca de 30% das questoes cairam sobre seguranca, entao vamos focar nisso agora.
                     <div className="mt-1 text-[10px] text-slate-500">Mentor IA · agora</div>
                   </div>
                 </div>
