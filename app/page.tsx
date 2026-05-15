@@ -76,11 +76,11 @@ export default function HomePage() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="hero-surface px-5 py-8 sm:px-6 sm:py-10 md:px-10 md:py-14 lg:px-14">
             <div className="hero-copy max-w-xl">
-            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.08em] text-white sm:text-5xl md:text-6xl md:leading-[0.95]">
-              Seu caminho guiado para a certificacao AWS.
+            <h1 className="mt-5 text-balance text-4xl font-semibold tracking-[-0.06em] text-slate-900 sm:text-5xl md:text-[3.35rem] md:leading-[0.98]">
+              Seu caminho guiado para a certificação AWS.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/95 sm:text-xl md:text-2xl">
-              Foque no que mais cai. Siga uma trilha clara. Evolua sem se perder.
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-700 sm:text-xl md:text-[1.4rem]">
+              Foque no que mais cai na prova. Siga uma trilha clara e evolua sem se perder.
             </p>
             </div>
           </div>
@@ -103,10 +103,10 @@ export default function HomePage() {
               Metodologia CloudStudy
             </div>
             <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[0.98]">
-              Uma metodologia guiada para voce estudar AWS com foco no que mais cai na prova.
+              Uma metodologia guiada para você estudar AWS com foco no que mais cai na prova.
             </h2>
             <p className="mt-6 text-lg leading-8 text-[var(--color-text-soft)]">
-              Com base em uma trilha completa da CLF-C02, organizamos o estudo por modulos, dominios e simulados. Voce recebe um plano progressivo, revisoes direcionadas pelos seus erros e acompanhamento continuo para evoluir com consistencia ate a aprovacao.
+              Com base em trilhas completas de certificação AWS, organizamos o estudo por módulos, domínios e simulados. Você recebe um plano progressivo, revisões direcionadas pelos seus erros e acompanhamento contínuo para evoluir com consistência até a aprovação. E conta com o Mentor IA da CloudStudy, treinado com memória real de preparação e prova, para orientar seu próximo passo com contexto prático de quem já passou pelo exame.
             </p>
           </div>
         </div>
@@ -125,7 +125,7 @@ export default function HomePage() {
               />
               <div className="mt-4 text-center">
                 <p className="text-base font-semibold tracking-[-0.01em] text-slate-900">Mentor IA CloudStudy</p>
-                <p className="mt-1 text-sm text-slate-500">Memoria real aplicada em exames AWS</p>
+                <p className="mt-1 text-sm text-slate-500">Memória real aplicada em exames AWS</p>
               </div>
             </div>
           </div>
@@ -152,22 +152,22 @@ export default function HomePage() {
 
                 <div className="space-y-3 bg-slate-50 px-4 py-4">
                   <div className="ml-auto max-w-[88%] rounded-2xl rounded-tr-md border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Sou iniciante e tenho pouco tempo. Como eu comeco sem me perder?
-                    <div className="mt-1 text-[10px] text-slate-400">Voce · agora</div>
+                    Sou iniciante e tenho pouco tempo. Como eu começo sem me perder?
+                    <div className="mt-1 text-[10px] text-slate-400">Você · agora</div>
                   </div>
 
                   <div className="max-w-[92%] rounded-2xl rounded-tl-md border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    A gente analisa onde voce esta errando ou tendo mais dificuldade. Eu ja passei por isso e vou te guiar no que realmente destrava.
+                    A gente analisa onde você está errando ou tendo mais dificuldade. Eu já passei por isso e vou te guiar no que realmente destrava.
                     <div className="mt-1 text-[10px] text-slate-500">Mentor IA · agora</div>
                   </div>
 
                   <div className="mt-4 ml-auto max-w-[88%] rounded-2xl rounded-tr-md border border-slate-200 bg-white px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Em qual area estou tendo mais dificuldade?
-                    <div className="mt-1 text-[10px] text-slate-400">Voce · agora</div>
+                    Em qual área estou tendo mais dificuldade?
+                    <div className="mt-1 text-[10px] text-slate-400">Você · agora</div>
                   </div>
 
                   <div className="max-w-[92%] rounded-2xl rounded-tl-md border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    Voce esta errando mais questoes de seguranca. No exame que eu fiz, cerca de 30% das questoes cairam sobre seguranca, entao vamos focar nisso agora.
+                    Você está errando mais questões de segurança. No exame que eu fiz, cerca de 30% das questões caíram sobre segurança, então vamos focar nisso agora.
                     <div className="mt-1 text-[10px] text-slate-500">Mentor IA · agora</div>
                   </div>
                 </div>
@@ -186,25 +186,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-shell py-8 md:py-10">
-        <div className="soft-panel mx-auto max-w-4xl p-5 sm:p-6 md:p-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h3 className="text-2xl font-semibold tracking-[-0.04em] text-[var(--color-accent-dark)] md:text-3xl">
+      <section className="section-shell py-3 md:py-4">
+        <div className="soft-panel mx-auto max-w-2xl p-3 sm:p-3 md:p-3">
+          <div className="mx-auto max-w-xl text-center">
+            <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--color-accent-dark)] md:text-2xl">
               Quer receber o acesso antecipado?
             </h3>
-            <p className="mt-3 text-base leading-7 text-[var(--color-text-soft)]">
-              Deixe seu e-mail para entrar na lista e receber as novidades da CloudStudy em primeira mão.
-            </p>
           </div>
 
-          <div className="mx-auto mt-6 max-w-2xl">
+          <div className="mx-auto mt-2 max-w-lg">
             <LaunchLeadForm
               title=""
               buttonLabel="Entrar na lista"
               helperText="Sem spam. Apenas atualizações importantes."
               source="landing_tutor_ia"
               tone="light"
-              className="rounded-[1.2rem]"
+              className="rounded-[0.95rem] !p-2.5 md:!p-2.5 [&_form]:mt-2 [&_form]:space-y-1.5 [&_input]:py-2 [&_button]:py-2 [&_button]:text-xs [&_p.text-xs]:leading-4"
             />
           </div>
         </div>
@@ -246,7 +243,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="certificacoes" className="section-shell py-12 md:py-16">
+      <section id="certificações" className="section-shell py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 flex max-w-3xl flex-col items-center justify-center text-center md:mb-16">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
