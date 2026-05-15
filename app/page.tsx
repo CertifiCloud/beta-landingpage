@@ -5,12 +5,6 @@ import { LaunchLeadForm } from "../components/launch-lead-form";
 import image3 from "../Image3.png";
 import image4 from "../Image4.png";
 
-const systemBullets = [
-  "Plano adaptativo",
-  "Simulados com diagnóstico",
-  "Tutor IA contextual",
-] as const;
-
 const launchCertifications = [
   {
     description: "Fundamentos de cloud e AWS para iniciar sua jornada.",
@@ -217,33 +211,41 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="max-w-md">
+          <div className="max-w-xl">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
               A virada
             </div>
             <h2 className="mt-5 text-balance text-3xl font-semibold tracking-[-0.06em] text-[var(--color-accent-dark)] md:text-5xl md:leading-[0.98]">
-              E se sua preparação tivesse um sistema?
+              Estudo solto vs. estudo com sistema
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[var(--color-text-soft)]">
-              Em vez de abrir materiais aleatórios, você seguiria uma trilha que entende sua meta,
-              mede seus pontos fracos e ajusta o próximo passo.
+            <p className="mt-5 text-base leading-7 text-[var(--color-text-soft)] md:text-lg">
+              Compare os dois cenários e veja por que a trilha guiada acelera sua evolução.
             </p>
 
-            <ul className="mt-8 space-y-3">
-              {systemBullets.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-[1.2rem] border border-[var(--color-border)] bg-[linear-gradient(135deg,#FFFFFF_0%,#F8FBFF_100%)] px-4 py-4 text-base text-slate-900 shadow-[0_8px_24px_rgba(20,121,255,0.05)]"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-7 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-[1.2rem] border border-slate-200 bg-white px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Sem sistema</p>
+                <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+                  <li>Conteúdo aleatório e sem prioridade.</li>
+                  <li>Dificuldade para saber onde você erra.</li>
+                  <li>Revisão sem método e sem sequência clara.</li>
+                </ul>
+              </div>
+
+              <div className="rounded-[1.2rem] border border-sky-200 bg-[linear-gradient(135deg,#F8FBFF_0%,#EEF5FF_100%)] px-4 py-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-accent-dark)]">Com CloudStudy</p>
+                <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
+                  <li>Trilha por domínio, em ordem de impacto.</li>
+                  <li>Diagnóstico contínuo com foco nos seus erros.</li>
+                  <li>Mentor IA com memória real para guiar o próximo passo.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="certificações" className="section-shell py-12 md:py-16">
+      <section id="certificacoes" className="section-shell py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 flex max-w-3xl flex-col items-center justify-center text-center md:mb-16">
             <div className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
