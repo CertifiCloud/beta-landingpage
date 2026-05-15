@@ -24,7 +24,7 @@ const launchCertifications = [
   },
   {
     description:
-      "Arquitetura de soluções escaláveis e preparação para a certificação associate.",
+      "Arquitetura de soluções escaláveis e preparação para a certificação Associate.",
     image: "/cert-solutions-architect.png",
     title: "Solutions Architect",
   },
@@ -133,7 +133,7 @@ export default function HomePage() {
                 priority
               />
               <div className="mentor-robot-badge mt-3 rounded-xl border border-cyan-200 bg-cyan-50 px-3 py-2 text-center text-xs font-semibold uppercase tracking-[0.1em] text-cyan-800">
-                Mentor IA com memoria real em exames AWS
+                Mentor IA com memoria real dos exames AWS
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function HomePage() {
                   </div>
 
                   <div className="max-w-[92%] rounded-2xl rounded-tl-md border border-slate-300 bg-slate-100 px-3 py-2.5 text-sm leading-6 text-slate-700">
-                    A gente analisa onde voce esta errando ou com mais dificuldade. Eu ja passei por isso e te guio no que realmente destrava.
+                    A gente analisa onde voce esta errando ou tendo mais dificuldade. Eu ja passei por isso e vou te guiar no que realmente destrava.
                     <div className="mt-1 text-[10px] text-slate-500">Mentor IA · agora</div>
                   </div>
 
